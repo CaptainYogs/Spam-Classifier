@@ -41,20 +41,15 @@ prediction_on_test_data=model.predict(X_test_features)
 accuracy_on_test_data=accuracy_score(Y_test,prediction_on_test_data)
 print('Accuracy on test  data is:',accuracy_on_test_data)
 
-input_your_mail=['This is the second time we tried to contact you. you have won the 25 lakh prize so claim your prize ,just call 08715678900']
-input_data_features=feature_extraction.transform(input_your_mail)
-prediction=model.predict(input_data_features)
-print(prediction)
-if (prediction[0]==1):
+while (True):
+  input_your_mail= list(input("Enter your mail: "))
+  input_data_features=feature_extraction.transform(input_your_mail)
+  prediction=model.predict(input_data_features)
+  print(prediction)
+  if (prediction[0]==1):
     print('Ham mail')
-else:
+  else:
     print('Spam mail')
-
-Second_input_your_mail = ['You have been selected to stay in 1of 250 top Indian hotels for more info dial at 0092456558']
-input_data_features = feature_extraction.transform(Second_input_your_mail)
-prediction_second = model.predict(input_data_features)
-print(prediction_second)
-if prediction_second[0] == 1:
-    print('Ham mail')
-else:
-    print('Spam mail')
+  inp = input("Do you wish to continue?(Y/N)")
+  if(inp in ['N','n']):
+    break
